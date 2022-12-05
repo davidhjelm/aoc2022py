@@ -15,7 +15,7 @@ move 1 from 1 to 2"""
 f = open("d05", "r")
 
 build_stack = True
-for line in testinput.splitlines():
+for line in f.readlines():
     inc = 1
     chars = list(line)
     try:
@@ -40,7 +40,7 @@ for line in testinput.splitlines():
         dst = int(m.group(3))
 
         flipped = stacks[src][:amount]
-        # flipped.reverse()
+        flipped.reverse()
         stacks[dst] = flipped + stacks[dst]
         stacks[src] = stacks[src][amount:]
 
