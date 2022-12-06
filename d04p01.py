@@ -1,6 +1,6 @@
 sum = 0
 
-f = open("d04", "r")
+f = open("inputs/d04", "r")
 
 testlines = """2-4,6-8
 2-3,4-5

@@ -32,7 +32,7 @@ def find_badge(input):
 
 sum = 0
 
-f = open("d03", "r")
+f = open("inputs/d03", "r")
 
 # testlines = """vJrwpWtwJgWrhcsFMMfFFhFp
 # jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL

@@ -12,7 +12,7 @@ def find_double(input):
 
 sum = 0
 
-f = open("d03", "r")
+f = open("inputs/d03", "r")
 for line in f.readlines():
     sum += find_double(line)
 

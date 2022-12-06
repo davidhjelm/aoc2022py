@@ -12,7 +12,7 @@ move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2"""
 
-f = open("d05", "r")
+f = open("inputs/d05", "r")
 
 build_stack = True
 for line in testinput.splitlines():
