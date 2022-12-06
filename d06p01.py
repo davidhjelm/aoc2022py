@@ -8,8 +8,8 @@ def get_marker(input):
     for c in list(input):
         count += 1
         chars.append(c)
-        if len(chars) == 14:
-            if len(get_unique(chars)) != 14:
+        if len(chars) == 4:
+            if len(get_unique(chars)) != 4:
                 chars.pop(0)
             else:
                 return count
