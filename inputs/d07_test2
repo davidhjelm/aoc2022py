@@ -1,0 +1,19 @@
+$ cd /
+$ ls
+dir a
+1 file.txt
+$ cd a
+$ ls
+dir a
+10 file.txt
+$ cd a
+$ ls
+dir a
+100 file.txt
+$ cd a
+$ ls
+dir a
+1000 file.txt
+$ cd a
+$ ls
+10000 file.txt
