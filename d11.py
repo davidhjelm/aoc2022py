@@ -22,7 +22,7 @@ class Monkey:
             if self.operation[0] == "+":
                 item.worry += int(self.operation[1])
 
-            item.worry = math.floor(item.worry / 3)
+            item.worry %= math.lcm(*[m.test for m in monkeys])
 
             if item.worry % self.test == 0:
                 monkeys[self.iftrue].items.append(item)
@@ -65,7 +65,7 @@ for line in f.readlines():
 monkey.items = items
 monkeys.append(monkey)
 
-for i in range(20):
+for i in range(10000):
     for m in monkeys:
         m.run(monkeys)
 
