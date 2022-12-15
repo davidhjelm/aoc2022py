@@ -8,8 +8,8 @@ class Fluid:
     directions = [(0, 1), (-1, 1), (1, 1)]
 
     def draw(self):
-        for y in range(0, 150):
-            for x in range(490, 590):
+        for y in range(0, 170):
+            for x in range(460, 590):
                 if (x, y) in self.rocks:
                     print("#", end="")
                 elif (x, y) in self.sand:
@@ -24,7 +24,11 @@ class Fluid:
     def get_route(self, pos):
         for dir in self.directions:
             check_pos = (pos[0] + dir[0], pos[1] + dir[1])
-            if check_pos not in self.sand and check_pos not in self.rocks:
+            if (
+                check_pos not in self.sand
+                and check_pos not in self.rocks
+                and check_pos[1] < self.floor
+            ):
                 return check_pos
         return False
 
@@ -42,6 +46,8 @@ class Fluid:
             i += 1
             if i > max_iter:
                 return False
+        if pos[1] == 0:
+            return False
         self.sand.append(pos)
         return True
 
@@ -74,6 +80,7 @@ class Fluid:
             for i in range(len(ranges)):
                 if i < len(ranges) - 1:
                     self.gen_rocks(ranges, i)
+        self.floor = max(self.rocks, key=lambda y: y[1])[1] + 2
 
 
 fluid = Fluid()
@@ -81,7 +88,11 @@ fluid.parse(f.readlines())
 count = 0
 while True:
     if not fluid.gen_sand():
+        count += 1
         print(count)
         break
+    if count % 100 == 0:
+        fluid.draw()
+        print("---------------------")
     count += 1
 # fluid.draw()
