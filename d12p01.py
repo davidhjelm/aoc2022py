@@ -104,27 +104,10 @@ class Path:
             print("  ")
         print("")
 
-    def get_start_positions(self):
-        start_positions = []
-        for y in range(len(self.grid)):
-            for x in range(len(self.grid[0])):
-                if self.grid[y][x] == "a" or self.grid[y][x] == "S":
-                    start_positions.append((y, x))
-        return start_positions
-
 
 path = Path(input)
-# path.dfs(path.root)
-shortest = None
-for p in path.get_start_positions():
-    path.root = p
-    path.pos = p
-    path.dfs(p)
-    if shortest is None or len(path.shortest) < len(shortest):
-        shortest = path.shortest
-        print(f"current shortest: {len(shortest)}")
+path.dfs(path.root)
 
-
-print(len(shortest))
+print(len(path.shortest))
 
 path.draw()
